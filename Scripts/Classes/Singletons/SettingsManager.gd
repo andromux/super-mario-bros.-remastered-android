@@ -3,7 +3,7 @@ extends Node
 var file := {
 	"video": {
 		"mode": 2,
-		"size": 0,
+		"size": 1,
 		"vsync": 1,
 		"drop_shadows": 1,
 		"scaling": 1,

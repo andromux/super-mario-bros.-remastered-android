@@ -12,7 +12,12 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	Global.debugged_in = false
-	Global.get_node("GameHUD").hide() # does not work?
+	Global.get_node("GameHUD").hide()
+	# always display disclaimer, romverifier, resourcegenerator in original aspect ratio for aesthetic reasons
+	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	#DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+	#print("hello")
+	#get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 	await get_tree().create_timer(1, false).timeout
 	can_skip = true
 

@@ -24,6 +24,9 @@ func _enter_tree() -> void:
 	title_first_load = false
 
 func _ready() -> void:
+	# change back to the window size saved to settings
+	#print(Settings.file.video.size)
+	#get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND if Settings.file.video.size == 1 else Window.CONTENT_SCALE_ASPECT_KEEP
 	setup_stars()
 	Global.level_theme_changed.connect(setup_stars)
 	DiscoLevel.in_disco_level = false

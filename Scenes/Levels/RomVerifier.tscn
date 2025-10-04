@@ -177,10 +177,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Please tap the screen
-and select your
-vanilla WORLD
-\"super mario bros\" rom."
+text = "Please tap the screen and select your vanilla WORLD \"super mario bros\" rom."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -236,8 +233,11 @@ stream = ExtResource("12_2ok7u")
 
 [node name="ROMSelectorButton" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_right = 256.0
-offset_bottom = 240.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 flat = true
 script = SubResource("GDScript_2ok7u")
 
