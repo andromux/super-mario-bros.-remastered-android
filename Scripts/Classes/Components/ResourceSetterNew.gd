@@ -62,6 +62,8 @@ func update_resource() -> void:
 	updated.emit()
 
 func get_resource(json_file: JSON) -> Resource:
+	#use_cache = true
+	
 	if cache.has(json_file.resource_path) and use_cache and force_properties.is_empty():
 		if property_cache.has(json_file.resource_path):
 			apply_properties(property_cache[json_file.resource_path])
