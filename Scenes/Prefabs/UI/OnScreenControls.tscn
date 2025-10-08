@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://q1fcrx6o6ic2" path="res://Assets/Sprites/UI/OnScreenControls/Select.png" id="6_puarm"]
 [ext_resource type="Texture2D" uid="uid://bknch6ytklusn" path="res://Assets/Sprites/UI/OnScreenControls/A.png" id="6_skjid"]
 [ext_resource type="Texture2D" uid="uid://bgf3d6pag47mj" path="res://Assets/Sprites/UI/OnScreenControls/B.png" id="7_0rhtk"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/UI/OnScreenControls/RunLock.png" id="8_h1250"]
+[ext_resource type="Texture2D" uid="uid://bqeassdv5yukq" path="res://Assets/Sprites/UI/OnScreenControls/RunLock.png" id="8_h1250"]
 [ext_resource type="Texture2D" uid="uid://d4nnv0bx18n5o" path="res://Assets/Sprites/UI/OnScreenControls/Start.png" id="9_yhrc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpx6y"]
@@ -36,7 +36,7 @@ size = Vector2(40, 18)
 size = Vector2(54, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puarm"]
-size = Vector2(24, 24)
+size = Vector2(44, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twq5y"]
 size = Vector2(24, 24)
@@ -147,11 +147,11 @@ action = "action_0"
 
 [node name="RunLockSprite" type="Sprite2D" parent="Control2"]
 modulate = Color(1, 1, 1, 0.7058824)
-position = Vector2(35, 32)
+position = Vector2(43, 32)
 texture = ExtResource("8_h1250")
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="Control2"]
-position = Vector2(35, 32)
+position = Vector2(45, 32)
 shape = SubResource("RectangleShape2D_puarm")
 
 [node name="StartSprite" type="Sprite2D" parent="Control2"]
