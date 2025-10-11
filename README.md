@@ -12,7 +12,7 @@ i just spent >71 hours across 7 days on porting this amazing game to android!! i
 ## features
 
 - all levels, menus and settings work as expected
-- online level browser works as expected
+- [~~online level browser works as expected~~](https://github.com/mircey/super-mario-bros.-remastered-android/issues/15)
 - android native file picker for rom selection
 - controller support
 - on screen/touch controls, which star haptic feedback and a run lock button, and are hidden automatically, once a controller is connected
