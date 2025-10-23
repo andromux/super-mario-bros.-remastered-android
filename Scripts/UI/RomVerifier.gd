@@ -27,7 +27,7 @@ func on_file_selected(temp_path: String, mime_type: String) -> void:
 		copy_rom(temp_path)
 	else:
 		error()
-
+	
 	DirAccess.remove_absolute(temp_path)
 
 func copy_rom(file_path := "") -> void:

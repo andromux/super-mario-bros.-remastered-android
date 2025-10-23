@@ -46,6 +46,7 @@ func _process(_delta : float) -> void:
 		if counter == 300:
 			print("Input/get_connected_joypads(): ", Input.get_connected_joypads())
 			print("OnScreenControls/should_show: ", should_show)
+			# TODO some more speccifics, as the above only prints [ 0, 1 ]\ntrue
 	else:
 		show()
 	counter = counter - 1 if counter > 0 else 300

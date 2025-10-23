@@ -164,9 +164,8 @@ var p_switch_timer_paused := false
 
 var debug_mode := false
 
-var controller_connected := false
-var on_screen_controls_visible := true
-@onready var on_screen_contols = $OnScreenControls
+var campaign_is_dummy := false
+var user_folder_path := ""
 
 func _ready() -> void:
 	current_version = get_version_number()
@@ -175,6 +174,7 @@ func _ready() -> void:
 		debug_mode = false
 	#setup_discord_rpc()
 	check_for_rom()
+	#check_for_user_folder()
 	await get_tree().process_frame  # Wait for scene tree to be ready
 	var game_viewport = get_tree().root.get_node("Wrapper/CenterContainer/SubViewportContainer/SubViewport")
 	if game_viewport:
@@ -194,6 +194,29 @@ func check_for_rom() -> void:
 			rom_assets_exist = true 
 		else:
 			OS.move_to_trash(ROM_ASSETS_PATH)
+
+func check_for_user_folder() -> void:
+	# TODO prolly load a lil configuration file here, also test for rw perms. save that config file in userfolderselector after custom prompt succeeded and separate test_user_folder_perms() call succeeded after that
+	#if !FileAccess.files_exists(user_folder_containing_config_file)
+	#	return
+	var loaded_user_folder_path = "" # load from special config file
+	if !DirAccess.dir_exists_absolute(loaded_user_folder_path):
+		return
+	if !test_folder_access(loaded_user_folder_path):
+		return
+	user_folder_path = loaded_user_folder_path
+
+func test_folder_access(folder_path) -> bool:
+	var test_file_path = folder_path + "/test"
+	var test_file = FileAccess.open(test_file_path, FileAccess.WRITE)
+	test_file.store_string("i can write!")
+	test_file.close()
+	
+	test_file = FileAccess.open(test_file_path, FileAccess.READ)
+	var test_content = test_file.get_as_text()
+	test_file.close()
+	
+	return test_content == "i can write!"
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_reload"):
@@ -432,9 +455,3 @@ func sanitize_string(string := "") -> String:
 		if FONT.has_char(string.unicode_at(i)) == false and string[i] != "\n":
 			string = string.replace(string[i], " ")
 	return string
-
-func show_on_screen_controls() -> void:
-	on_screen_controls_visible = true
-
-func hide_on_screen_controls() -> void:
-	on_screen_controls_visible = false

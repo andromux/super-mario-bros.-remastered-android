@@ -11,8 +11,7 @@ i just spent >71 hours across 7 days on porting this amazing game to android!! i
 
 ## features
 
-- all levels, menus and settings work as expected
-- [~~online level browser works as expected~~](https://github.com/mircey/super-mario-bros.-remastered-android/issues/15)
+- all levels, menus and settings work as they do on pc
 - android native file picker for rom selection
 - controller support
 - on screen/touch controls, which star haptic feedback and a run lock button, and are hidden automatically, once a controller is connected
@@ -22,6 +21,7 @@ i just spent >71 hours across 7 days on porting this amazing game to android!! i
 
 ## limitations
 
+- [~~online level browser works as expected~~](https://github.com/mircey/super-mario-bros.-remastered-android/issues/15)
 - the level editor is still completely unimplemented. tracked [here](https://github.com/mircey/super-mario-bros.-remastered-android/issues/6)
 - installing resource packs and custom characters can currently only be done manually, via accessing `/Android/data/net.yrkl.smb1r/files`. tracked [here](https://github.com/mircey/super-mario-bros.-remastered-android/issues/2)
 
@@ -91,6 +91,8 @@ im happy you want to help!! below are the steps to get a development environment
 # credits
 
 thanks to [JoeMama](https://github.com/JHDev2006), all their [contributors on github](https://github.com/JHDev2006/Super-Mario-Bros.-Remastered-Public/graphs/contributors) and everyone else who helped bring the original [Windows/Linux version](https://github.com/JHDev2006/Super-Mario-Bros.-Remastered-Public) of the game to life.
+
+thanks to [SeppNel](https://github.com/SeppNel) and [PuntitOwO](https://github.com/PuntitOwO) for updating [pettlebass](https://github.com/pattlebass) [Godot-File-Picker](https://github.com/SeppNel/Godot-File-Picker) addon
 
 thanks to [Caz Wolf](https://cazwolf.itch.io/) for their amazing work on the [on screen/touch control sprites](https://cazwolf.itch.io/caz-pixel-keyboard?download)!
 

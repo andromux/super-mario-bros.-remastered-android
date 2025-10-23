@@ -8,4 +8,6 @@ func _ready() -> void:
 	Global.level_theme_changed.connect(update)
 
 func update() -> void:
+	if Global.campaign_is_dummy:
+		return
 	texture = resource_getter.get_resource(texture)

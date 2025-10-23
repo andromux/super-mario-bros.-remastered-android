@@ -34,6 +34,9 @@ func on_screen_tapped() -> void:
 		go_to_menu()
 
 func go_to_menu() -> void:
+	if true:
+		# testing only, TODO proper check for path existing
+		Global.transition_to_scene("res://Scenes/Levels/UserFolderSelector.tscn")
 	if Global.rom_path == "":
 		Global.transition_to_scene("res://Scenes/Levels/RomVerifier.tscn")
 	elif not Global.rom_assets_exist:
