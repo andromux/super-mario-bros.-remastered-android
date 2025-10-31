@@ -35,16 +35,18 @@ const RUN_LOCK_ON = preload("res://Assets/Sprites/UI/OnScreenControls/RunLockOn.
 
 var run_lock_on := false
 var vibration_thread: Thread
-var should_show := false
+var should_show: bool
 
 # debug cooldown of 5 seconds at 60 fps, 2,5 seconds at 120 fps
 var counter := 300
 
 func _process(_delta : float) -> void:
-	if Input.get_connected_joypads().size() > 0 || !should_show:
+	
+	if Input.get_connected_joypads()[0] || !should_show:
 		hide()
 		if counter == 300:
 			print("Input/get_connected_joypads(): ", Input.get_connected_joypads())
+			print("Input/get_connected_joypads()/size(): ", Input.get_connected_joypads().size())
 			print("OnScreenControls/should_show: ", should_show)
 	else:
 		show()
