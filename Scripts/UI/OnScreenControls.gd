@@ -169,6 +169,7 @@ func detect_real_joysticks() -> Array:
 			if counter == 300: print(Input.get_joy_name(i), " detected!")
 		else:
 			realJoysticks.append(count)
+			count = count + 1
 			if counter == 300: print(Input.get_joy_name(i), " is valid!")
 	return realJoysticks if (realJoysticks.size() > 0) else []
 
