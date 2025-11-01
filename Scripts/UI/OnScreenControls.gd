@@ -161,7 +161,7 @@ func on_select_released() -> void:
 
 func detect_real_joysticks() -> Array:
 	var realJoysticks: Array
-	var count: int
+	var count := 0
 	
 	if !Input.get_connected_joypads().size(): return []
 	for i in Input.get_connected_joypads():
