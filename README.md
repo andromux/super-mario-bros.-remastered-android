@@ -3,11 +3,12 @@ this is an android port of the [Super Mario Bros. Remaster](https://github.com/J
 
 i just spent >71 hours across 7 days on porting this amazing game to android!! if you enjoy the result of my latest obsession, please consider [leaving me a tip](https://ko-fi.com/mircey) or [buying me a coffee](https://buymeacoffee.com/mircey) <3 !!
 
-<p float="left">
+<p align="center">
   <!--<a href="https://ko-fi.com/mircey"><img width="160" alt="crying emoji" src="https://github.com/user-attachments/assets/afdab743-7f81-4648-b87e-316a48fa5b87" /></a>-->
   <a href="https://ko-fi.com/mircey"><img width="160" alt="thrilled" src="https://github.com/user-attachments/assets/9789b502-579c-435d-939a-1643f7540c04" /></a>
   <!--<a href="https://buymeacoffee.com/mircey"><img width="160" alt="please" src="https://github.com/user-attachments/assets/1395ce96-0e2a-4a31-863c-77ac3b98fddd" /></a>-->
 </p>
+
 
 ## features
 
