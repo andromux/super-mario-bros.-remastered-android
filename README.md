@@ -11,8 +11,8 @@ i just spent >71 hours across 7 days on porting this amazing game to android!! i
 
 ## features
 
-- all levels, menus and settings work as expected
-- [~~online level browser works as expected~~](https://github.com/mircey/super-mario-bros.-remastered-android/issues/15)
+- all levels, menus and settings work as they do on pc
+- online level browser works as expected
 - android native file picker for rom selection
 - controller support
 - on screen/touch controls, which star haptic feedback and a run lock button, and are hidden automatically, once a controller is connected
@@ -23,7 +23,7 @@ i just spent >71 hours across 7 days on porting this amazing game to android!! i
 ## limitations
 
 - the level editor is still completely unimplemented. tracked [here](https://github.com/mircey/super-mario-bros.-remastered-android/issues/6)
-- installing resource packs and custom characters can currently only be done manually, via accessing `/Android/data/net.yrkl.smb1r/files`. tracked [here](https://github.com/mircey/super-mario-bros.-remastered-android/issues/2)
+- installing resource packs and custom characters can currently only be done manually, via accessing `/data/data/net.yrkl.smb1r/files`. tracked [here](https://github.com/mircey/super-mario-bros.-remastered-android/issues/2)
 
 ## download
 
