@@ -21,7 +21,7 @@ const SELECT_HELD = preload("res://Assets/Sprites/UI/OnScreenControls/SelectHeld
 const RUN_LOCK = preload("res://Assets/Sprites/UI/OnScreenControls/RunLock.png")
 const RUN_LOCK_ON = preload("res://Assets/Sprites/UI/OnScreenControls/RunLockOn.png")
 
-const BLACKLIST := ["uinput-goodix"]
+const BLACKLIST := ["uinput-goodix", "uinput-silead"]
 
 @onready var left = $Control/LeftSprite
 @onready var right = $Control/RightSprite
@@ -165,11 +165,12 @@ func detect_real_joysticks() -> Array:
 	if !Input.get_connected_joypads().size(): return []
 
 	for i in Input.get_connected_joypads():
-		if Input.get_joy_name(i) in BLACKLIST:
-			if counter == 300: print(Input.get_joy_name(i), " detected!")
+		var joy_name = Input.get_joy_name(i)
+		if joy_name in BLACKLIST:
+			if counter == 300: print(joy_name, " detected!")
 		else:
 			realJoysticks.append(i)
-			if counter == 300: print(Input.get_joy_name(i), " is valid!")
+			if counter == 300: print(joy_name, " is valid!")
 	return realJoysticks if (realJoysticks.size() > 0) else []
 
 func _exit_tree():
