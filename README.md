@@ -99,4 +99,4 @@ thanks to Milana for pushing me towards publishing my android port, instead of w
 
 thanks to Ömer and Danny for alpha testing and thanks to Kenny for lending me various android devices
 
-thanks to @Celizte for researching and implementing a robust fix for missing on screen/touch controls
+thanks to [Celizte](https://github.com/Celizte) for researching and implementing a robust fix for missing on screen/touch controls
