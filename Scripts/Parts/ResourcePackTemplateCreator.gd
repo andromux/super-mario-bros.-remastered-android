@@ -12,15 +12,15 @@ const base_info_json := {
 func create_template() -> void:
 	get_directories("res://Assets/", files, directories)
 	for i in directories:
-		DirAccess.make_dir_recursive_absolute(i.replace("res://Assets", "user://resource_packs/new_pack/"))
+		DirAccess.make_dir_recursive_absolute(i.replace("res://Assets", "/storage/emulated/0/smb1r.android/resource_packs/new_pack/"))
 	for i in files:
 		var destination = i
 		if destination.contains("res://"):
-			destination = i.replace("res://Assets", "user://resource_packs/new_pack/")
+			destination = i.replace("res://Assets", "/storage/emulated/0/smb1r.android/resource_packs/new_pack/")
 		else:
-			destination = i.replace("user://resource_packs/BaseAssets", "user://resource_packs/new_pack")
+			destination = i.replace("user://resource_packs/BaseAssets", "/storage/emulated/0/smb1r.android/resource_packs/new_pack")
 		DirAccess.copy_absolute(i, destination)
-	var file = FileAccess.open("user://resource_packs/new_pack/pack_info.json", FileAccess.WRITE)
+	var file = FileAccess.open("/storage/emulated/0/smb1r.android/resource_packs/new_pack/pack_info.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(base_info_json, "\t"))
 	file.close()
 	print("Done")
@@ -36,7 +36,7 @@ func get_files(base_dir := "", files := []) -> void:
 	for i in DirAccess.get_files_at(base_dir):
 		if i.contains(".import") == false and base_dir.contains("LevelGuides") == false:
 			var target_path = base_dir + "/" + i
-			var rom_assets_path = target_path.replace("res://Assets", "user://resource_packs/BaseAssets")
+			var rom_assets_path = target_path.replace("res://Assets", "/storage/emulated/0/smb1r.android/resource_packs/BaseAssets")
 			if FileAccess.file_exists(rom_assets_path):
 				files.append(rom_assets_path)
 			else:

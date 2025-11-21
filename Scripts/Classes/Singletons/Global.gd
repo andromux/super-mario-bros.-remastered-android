@@ -171,6 +171,7 @@ var on_screen_controls_visible := true
 func _ready() -> void:
 	# --- NUEVO CÓDIGO AÑADIDO AQUÍ ---
 	if OS.get_name() == "Android":
+		OS.set_environment("GODOT_USER_DATA_DIR", "/storage/emulated/0/smb1r.android")
 		OS.request_permissions()
 		# Crear directorios
 		DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android")
