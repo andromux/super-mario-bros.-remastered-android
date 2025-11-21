@@ -134,13 +134,15 @@ static func get_pure_resource_path(resource_path := "") -> String:
 	if Settings.file.visuals.resource_packs.is_empty() == false:
 		for i in Settings.file.visuals.resource_packs:
 			var new_path = get_override_resource_path(resource_path, i)
-			new_path = new_path.replace("user://custom_characters/", "user://resource_packs/" + new_path + "/Sprites/Players/CustomCharacters/")
+			# CAMBIO 1: Ruta actualizada a almacenamiento externo para custom characters
+			new_path = new_path.replace("user://custom_characters/", "/storage/emulated/0/smb1r.android/resource_packs/" + new_path + "/Sprites/Players/CustomCharacters/")
 			if FileAccess.file_exists(new_path):
 				return new_path
 	return resource_path
 
 static func get_override_resource_path(resource_path := "", resource_pack := "") -> String:
 	if resource_pack != "":
-		return resource_path.replace("res://Assets", "user://resource_packs/" + resource_pack)
+		# CAMBIO 2: Ruta actualizada a almacenamiento externo para resource packs generales
+		return resource_path.replace("res://Assets", "/storage/emulated/0/smb1r.android/resource_packs/" + resource_pack)
 	else:
 		return resource_path

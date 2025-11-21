@@ -1,0 +1,100 @@
+Patch Android Storage Log - 2025-11-20T22:52:53.417630
+============================================================
+
+
+
+[✓] Proyecto Godot válido: /home/miguel/super-mario-bros.-remastered-android
+
+[•] Iniciando proceso de parcheo...
+
+Archivo: export_presets.cfg
+    - Línea 479: manage_external_storage = true
+    - Línea 493: read_external_storage = true
+    - Línea 548: write_external_storage = true
+[✓] Total: 3 cambios aplicados
+
+Archivo: Global.gd
+    - Línea 31: ROM_POINTER_PATH actualizado
+    - Línea 32: ROM_PATH actualizado
+    - Línea 33: ROM_ASSETS_PATH actualizado
+[✓] Total: 3 cambios aplicados
+
+Archivo: SettingsManager.gd
+    - Línea 80: SETTINGS_DIR actualizado
+    - Línea 83: make_dir resource_packs actualizado
+[✓] Total: 2 cambios aplicados
+
+Archivo: ModLoader path.gd
+    - Línea 9: MOD_CONFIG_DIR_PATH actualizado
+[✓] Total: 1 cambios aplicados
+
+Archivo: SaveManager.gd
+    - Línea 3: SAVE_DIR constante actualizado
+    - Línea 73: make_dir saves actualizado
+    - Línea 75: saves/ actualizado
+    - Línea 77: saves/ actualizado
+    - Línea 147: saves/ actualizado
+    - Línea 169: achievements.sav actualizado
+    - Línea 171: achievements.sav actualizado
+    - Línea 180: achievements.sav actualizado
+[✓] Total: 8 cambios aplicados
+
+Archivo: ResourcePackLoader.gd
+    - Línea 23: resource_packs/ actualizado
+    - Línea 25: resource_packs/ actualizado
+    - Línea 39: resource_packs/ actualizado
+    - Línea 12: resource_packs actualizado
+    - Línea 20: resource_packs actualizado
+[✓] Total: 5 cambios aplicados
+
+Buscando archivos .tscn...
+
+TSCN: Scenes/Levels/AchievementMenu.tscn
+[⚠] No se encontraron cambios
+
+TSCN: Scenes/Prefabs/UI/SettingsMenu.tscn
+[⚠] No se encontraron cambios
+
+TSCN: backups/20251120_225253/Scenes/Levels/AchievementMenu.tscn
+[⚠] No se encontraron cambios
+
+TSCN: backups/20251120_225253/Scenes/Prefabs/UI/SettingsMenu.tscn
+[⚠] No se encontraron cambios
+
+Verificando cambios...
+[⚠] 43 referencias pendientes:
+    - Scripts/Parts/ResourcePackTemplateCreator.gd:15
+    - Scripts/Parts/ResourcePackTemplateCreator.gd:19
+    - Scripts/Parts/ResourcePackTemplateCreator.gd:21
+    - Scripts/Parts/ResourcePackTemplateCreator.gd:23
+    - Scripts/Parts/ResourcePackTemplateCreator.gd:39
+    - Scripts/Classes/Singletons/Global.gd:339
+    - Scripts/Classes/Singletons/SpeedrunHandler.gd:196
+    - Scripts/Classes/Singletons/SpeedrunHandler.gd:235
+    - Scripts/Classes/Singletons/SpeedrunHandler.gd:252
+    - Scripts/Classes/Singletons/SpeedrunHandler.gd:257
+    ... y 33 más
+
+============================================================
+  RESUMEN
+============================================================
+  • Archivos procesados: 10/10
+  • Total de cambios: 22
+  • Backups en: /home/miguel/super-mario-bros.-remastered-android/backups/20251120_225253
+
+============================================================
+  ⚠ ACCIÓN MANUAL REQUERIDA
+============================================================
+
+[⚠] Añade este código en Global.gd (_ready o _enter_tree):
+
+    func _ready():
+        if OS.get_name() == "Android":
+            OS.request_permissions()
+            # Crear directorios
+            DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android")
+            DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/saves")
+            DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/mods")
+            DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/mod_configs")
+            DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/resource_packs")
+            DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/marathon_recordings")

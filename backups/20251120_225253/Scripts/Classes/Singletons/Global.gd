@@ -28,9 +28,9 @@ const lang_codes := ["en", "fr", "es", "de", "it", "pt", "pl", "tr", "ru", "jp",
 
 var rom_path := ""
 var rom_assets_exist := false
-const ROM_POINTER_PATH := "/storage/emulated/0/smb1r.android/rom_pointer.smb"
-const ROM_PATH := "/storage/emulated/0/smb1r.android/baserom.nes"
-const ROM_ASSETS_PATH := "/storage/emulated/0/smb1r.android/resource_packs/BaseAssets"
+const ROM_POINTER_PATH := "user://rom_pointer.smb"
+const ROM_PATH := "user://baserom.nes"
+const ROM_ASSETS_PATH := "user://resource_packs/BaseAssets"
 const ROM_PACK_NAME := "BaseAssets"
 const ROM_ASSETS_VERSION := 0
 
@@ -169,19 +169,6 @@ var on_screen_controls_visible := true
 @onready var on_screen_contols = $OnScreenControls
 
 func _ready() -> void:
-	# --- NUEVO CÓDIGO AÑADIDO AQUÍ ---
-	if OS.get_name() == "Android":
-		OS.request_permissions()
-		# Crear directorios
-		DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android")
-		DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/saves")
-		DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/mods")
-		DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/mod_configs")
-		DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/resource_packs")
-		DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/resource_packs/BaseAssets")
-		DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/marathon_recordings")
-	# ---------------------------------
-
 	current_version = get_version_number()
 	get_server_version()
 	if OS.is_debug_build():
@@ -189,7 +176,7 @@ func _ready() -> void:
 	#setup_discord_rpc()
 	check_for_rom()
 	
-	await get_tree().process_frame
+	await get_tree().process_frame  # Wait for scene tree to be ready
 	var game_viewport = get_tree().root.get_node("Wrapper/CenterContainer/SubViewportContainer/SubViewport")
 	if game_viewport:
 		reparent(game_viewport)
@@ -197,7 +184,7 @@ func _ready() -> void:
 func check_for_rom() -> void:
 	if FileAccess.file_exists(Global.ROM_PATH) == false:
 		return
-	var path = Global.ROM_PATH
+	var path = Global.ROM_PATH 
 	if FileAccess.file_exists(path):
 		if ROMVerifier.is_valid_rom(path):
 			rom_path = path
@@ -205,7 +192,7 @@ func check_for_rom() -> void:
 		var pack_json: String = FileAccess.get_file_as_string(ROM_ASSETS_PATH + "/pack_info.json")
 		var pack_dict: Dictionary = JSON.parse_string(pack_json)
 		if pack_dict.get("version", -1) == ROM_ASSETS_VERSION:
-			rom_assets_exist = true
+			rom_assets_exist = true 
 		else:
 			OS.move_to_trash(ROM_ASSETS_PATH)
 
@@ -422,7 +409,7 @@ func log_warning(msg := "") -> void:
 	
 func log_comment(msg := "") -> void:
 	var error_message = $CanvasLayer/VBoxContainer/Comment.duplicate()
-	error_message.text = msg
+	error_message.text =  msg
 	error_message.visible = true
 	$CanvasLayer/VBoxContainer.add_child(error_message)
 	await get_tree().create_timer(2, false).timeout

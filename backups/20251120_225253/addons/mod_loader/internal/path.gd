@@ -6,7 +6,7 @@ extends RefCounted
 # Currently all of the included functions are internal and should only be used by the mod loader itself.
 
 const LOG_NAME := "ModLoader:Path"
-const MOD_CONFIG_DIR_PATH := "/storage/emulated/0/smb1r.android/mod_configs"
+const MOD_CONFIG_DIR_PATH := "user://mod_configs"
 const MOD_CONFIG_DIR_PATH_OLD := "user://configs"
 
 

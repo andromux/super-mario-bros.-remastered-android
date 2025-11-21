@@ -77,10 +77,10 @@ var file := {
 	}
 }
 
-const SETTINGS_DIR := "/storage/emulated/0/smb1r.android/settings.cfg"
+const SETTINGS_DIR := "user://settings.cfg"
 
 func _enter_tree() -> void:
-	DirAccess.make_dir_recursive_absolute("/storage/emulated/0/smb1r.android/resource_packs")
+	DirAccess.make_dir_absolute("user://resource_packs")
 	load_settings()
 	await get_tree().physics_frame
 	apply_settings()
